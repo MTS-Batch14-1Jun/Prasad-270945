@@ -1,0 +1,5 @@
+{
+  "name": "Java Dev",
+  "image": "mcr.microsoft.com/devcontainers/java:1-21-bookworm",
+  "postCreateCommand": "sdk install java 25-open && sdk default java 25-open"
+}
