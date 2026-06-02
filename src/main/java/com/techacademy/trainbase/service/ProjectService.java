@@ -1,7 +1,9 @@
 package com.techacademy.trainbase.service;
 
 import com.techacademy.trainbase.entity.Project;
+import com.techacademy.trainbase.entity.User;
 import com.techacademy.trainbase.repository.ProjectRepository;
+import com.techacademy.trainbase.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,9 @@ public class ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
     
+    @Autowired
+    private UserRepository userRepository;
+
     public List<Project> getAllProjects() {
         return projectRepository.findAll();
     }
@@ -47,7 +52,9 @@ public class ProjectService {
     }
     
     public List<Project> getProjectsByOwner(Long ownerId) {
-        return projectRepository.findByOwnerId(ownerId);
+        Optional<User> user = userRepository.findById(ownerId);
+       // return user.map(projectRepository::findByOwnerId).orElse(List.of());
+       return projectRepository.findByOwnerId(user.get());
     }
     
     public List<Project> searchProjectsByName(String name) {

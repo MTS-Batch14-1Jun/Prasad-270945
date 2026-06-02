@@ -1,5 +1,6 @@
 package com.techacademy.trainbase.dto;
 
+import com.techacademy.trainbase.entity.User;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import java.time.LocalDateTime;
@@ -14,7 +15,7 @@ public class ProjectDTO {
     
     private String description;
     
-    private Long ownerId;
+    private User ownerId;
     
     private LocalDateTime createdAt;
     
@@ -23,7 +24,7 @@ public class ProjectDTO {
     // Constructors
     public ProjectDTO() {}
     
-    public ProjectDTO(Long id, String name, String description, Long ownerId, 
+    public ProjectDTO(Long id, String name, String description, User ownerId,
                      LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
@@ -58,11 +59,11 @@ public class ProjectDTO {
         this.description = description;
     }
     
-    public Long getOwnerId() {
+    public User getOwnerId() {
         return ownerId;
     }
     
-    public void setOwnerId(Long ownerId) {
+    public void setOwnerId(User ownerId) {
         this.ownerId = ownerId;
     }
     

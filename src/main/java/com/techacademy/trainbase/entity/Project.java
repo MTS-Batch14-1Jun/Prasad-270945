@@ -1,8 +1,12 @@
 package com.techacademy.trainbase.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.techacademy.trainbase.serializer.UserLazySerializer;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -20,10 +24,15 @@ public class Project {
     
     @Column(columnDefinition = "TEXT")
     private String description;
-    
-    @Column(name = "owner_id", nullable = false)
-    private Long ownerId;
-    
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonSerialize(using = UserLazySerializer.class)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "owner_id", nullable = false)
+    private User ownerId;
+
+
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
     
@@ -44,7 +53,7 @@ public class Project {
     // Constructors
     public Project() {}
     
-    public Project(String name, String description, Long ownerId) {
+    public Project(String name, String description, User ownerId) {
         this.name = name;
         this.description = description;
         this.ownerId = ownerId;
@@ -74,12 +83,11 @@ public class Project {
     public void setDescription(String description) {
         this.description = description;
     }
-    
-    public Long getOwnerId() {
+    public User getOwnerId() {
         return ownerId;
     }
     
-    public void setOwnerId(Long ownerId) {
+    public void setOwnerId(User ownerId) {
         this.ownerId = ownerId;
     }
     
