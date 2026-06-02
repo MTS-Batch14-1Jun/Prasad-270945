@@ -2,9 +2,11 @@ package com.techacademy.trainbase.service;
 
 import com.techacademy.trainbase.entity.Project;
 import com.techacademy.trainbase.entity.User;
+import com.techacademy.trainbase.exception.ResourceNotFoundException;
 import com.techacademy.trainbase.repository.ProjectRepository;
 import com.techacademy.trainbase.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,13 +21,24 @@ public class ProjectService {
     @Autowired
     private UserRepository userRepository;
 
+
+    @Cacheable(value = "project", key = "#id", unless = "#result == null")
+    public Optional<Project> getProjectById(Long id) {
+        System.out.println("-------------------");
+        //log.info("Fetching project from database: {}", id);
+        /*Project project = projectRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Project not found with id: " + id));
+        return project;*/
+        return projectRepository.findById(id);
+    }
+
     public List<Project> getAllProjects() {
         return projectRepository.findAll();
     }
     
-    public Optional<Project> getProjectById(Long id) {
+   /* public Optional<Project> getProjectById(Long id) {
         return projectRepository.findById(id);
-    }
+    }*/
     
     public Project createProject(Project project) {
         return projectRepository.save(project);

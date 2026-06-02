@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.ehcache.org/v3"
+        xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.0.xsd">
+
+    <!-- Project Cache -->
+    <cache alias="project">
+        <key-type>java.lang.Long</key-type>
+        <value-type>com.techacademy.trainbase.entity.Project</value-type>
+        <expiry>
+            <ttl unit="minutes">30</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">1000</heap>
+            <offheap unit="MB">10</offheap>
+        </resources>
+    </cache>
+
+    <!-- Task Cache -->
+    <cache alias="task">
+        <key-type>java.lang.Long</key-type>
+        <value-type>com.techacademy.trainbase.entity.Task</value-type>
+        <expiry>
+            <ttl unit="minutes">15</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">5000</heap>
+            <offheap unit="MB">20</offheap>
+        </resources>
+    </cache>
+
+    <!-- Comment Cache -->
+    <cache alias="comment">
+        <key-type>java.lang.Long</key-type>
+        <value-type>com.techacademy.trainbase.entity.Comment</value-type>
+        <expiry>
+            <ttl unit="minutes">10</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">10000</heap>
+            <offheap unit="MB">5</offheap>
+        </resources>
+    </cache>
+
+    <!-- User Cache -->
+    <cache alias="user">
+        <key-type>java.lang.Long</key-type>
+        <value-type>com.techacademy.trainbase.entity.User</value-type>
+        <expiry>
+            <ttl unit="minutes">60</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">500</heap>
+            <offheap unit="MB">5</offheap>
+        </resources>
+    </cache>
+
+    <!-- Query Cache -->
+    <cache alias="query-cache">
+        <key-type>org.hibernate.cache.spi.QueryKey</key-type>
+        <value-type>java.util.List</value-type>
+        <expiry>
+            <ttl unit="minutes">5</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">1000</heap>
+        </resources>
+    </cache>
+
+    <!-- Timestamps Cache -->
+    <cache alias="update-timestamps">
+        <key-type>java.lang.String</key-type>
+        <value-type>java.lang.Long</value-type>
+        <expiry>
+            <ttl unit="minutes">10</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">100</heap>
+        </resources>
+    </cache>
+</config>

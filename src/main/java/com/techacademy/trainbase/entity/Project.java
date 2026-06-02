@@ -6,6 +6,7 @@ import com.techacademy.trainbase.serializer.UserLazySerializer;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.BatchSize;
 
 import java.time.LocalDateTime;
 
