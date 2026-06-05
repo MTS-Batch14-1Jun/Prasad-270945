@@ -1,3 +1,4 @@
+/*
 package com.techacademy.trainbase.service;
 
 import com.techacademy.trainbase.dto.ProjectDTO;
@@ -34,3 +35,4 @@ public class CompletableService {
         }, virtualThreadExecutor);
     }
 }
+*/

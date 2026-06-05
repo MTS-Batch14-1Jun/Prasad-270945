@@ -1,3 +1,4 @@
+/*
 package com.techacademy.trainbase;
 
 import org.springframework.context.annotation.Bean;
@@ -73,4 +74,4 @@ public class ThreadPoolConfig {
     }
 
 
-}
+}*/

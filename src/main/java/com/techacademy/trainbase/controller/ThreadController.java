@@ -1,6 +1,6 @@
+/*
 package com.techacademy.trainbase.controller;
 
-import com.techacademy.trainbase.service.CompletableService;
 import com.techacademy.trainbase.threads.VirtualThreadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,3 +37,4 @@ public class ThreadController {
         return ResponseEntity.ok("executeAscThread  completed.");
     }
 }
+*/
