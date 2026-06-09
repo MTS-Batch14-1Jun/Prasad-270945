@@ -1,3 +1,4 @@
+/*
 package com.techacademy.trainbase.kafka;
 
 import com.techacademy.trainbase.dto.OrderEvent;
@@ -34,4 +35,4 @@ public class OrderProducer {
             }
         });
     }
-}
+}*/

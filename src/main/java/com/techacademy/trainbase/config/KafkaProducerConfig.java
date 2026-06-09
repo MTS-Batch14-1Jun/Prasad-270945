@@ -1,3 +1,4 @@
+/*
 package com.techacademy.trainbase.config;
 
 import com.techacademy.trainbase.dto.OrderEvent;
@@ -42,4 +43,4 @@ public class KafkaProducerConfig {
     public KafkaTransactionManager kafkaTransactionManager(ProducerFactory<String, OrderEvent> producerFactory) {
         return new KafkaTransactionManager(producerFactory);
     }
-}
+}*/

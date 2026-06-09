@@ -1,3 +1,4 @@
+/*
 package com.techacademy.trainbase.kafka;
 
 import com.techacademy.trainbase.dto.OrderEvent;
@@ -17,6 +18,7 @@ import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 
+*/
 /**
  * Kafka Consumer for processing order events asynchronously
  *
@@ -34,14 +36,16 @@ import java.util.concurrent.Executor;
  *
  * @author Trainbase Team
  * @version 1.0
- */
+ *//*
+
 @Service
 @Slf4j
 public class OrderConsumer {
 
     private final Executor taskExecutor;
 
-    /**
+    */
+/**
      * Constructor for OrderConsumer with dependency injection
      *
      * Injects the application's task executor for asynchronous processing of order events.
@@ -50,7 +54,8 @@ public class OrderConsumer {
      * @param taskExecutor the executor for async order processing
      *
      * @throws IllegalArgumentException if taskExecutor is null
-     */
+     *//*
+
     @Autowired
     public OrderConsumer(@Qualifier("applicationTaskExecutor") Executor taskExecutor) {
         if (taskExecutor == null) {
@@ -60,7 +65,8 @@ public class OrderConsumer {
         log.info("OrderConsumer initialized with executor: {}", taskExecutor.getClass().getSimpleName());
     }
 
-    /**
+    */
+/**
      * Consume and process order events from Kafka
      *
      * This method acts as a Kafka listener that consumes messages from the
@@ -90,7 +96,8 @@ public class OrderConsumer {
      * @see OrderEvent
      * @see Acknowledgment
      * @see CompletableFuture
-     */
+     *//*
+
     @KafkaListener(
         topics = "order-events",
         groupId = "notification-group",
@@ -122,7 +129,8 @@ public class OrderConsumer {
             });
     }
 
-    /**
+    */
+/**
      * Process the order event (business logic)
      *
      * This method contains the core business logic for processing an order.
@@ -135,7 +143,8 @@ public class OrderConsumer {
      * @param orderEvent the order event to process
      *
      * @throws IllegalArgumentException if order amount is invalid (less than or equal to 0)
-     */
+     *//*
+
     private void processOrder(OrderEvent orderEvent) {
         // Validate order amount
         if (orderEvent.getAmount() <= 0) {
@@ -184,4 +193,4 @@ public class OrderConsumer {
                 record.topic()
         );
     }
-}
+}*/
